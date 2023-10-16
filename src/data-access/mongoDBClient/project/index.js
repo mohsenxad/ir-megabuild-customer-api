@@ -21,12 +21,22 @@ module.exports = function
                 getDb: getDb,
                 ObjectId: ObjectId
             }
-        )
+        );
+
+        
+        const { getAllProjectByCompanyId } = require('./get-all-project-by-companyId')
+        (
+            {
+                getDb: getDb,
+                ObjectId: ObjectId
+            }
+        );
 
         const services = Object.freeze(
             {
                 getAllProject,
-                getProjectById
+                getProjectById,
+                getAllProjectByCompanyId
             }
         );
 

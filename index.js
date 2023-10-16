@@ -70,6 +70,75 @@ app.get('/projectItem/:projectItemId',
         }
 )
 
+//========= COMPANY ======================
+
+app.get('/company/:companyId',
+    async (req, res) =>
+        {
+            try 
+                {
+                    const companyId = req.params["companyId"];
+
+                    const company = await customerServices.company.getCompanyById(
+                        {
+                            companyId: companyId
+                        }
+                    );
+
+                    const result = {
+                        company : company
+                    };
+
+                    sendResult(
+                        res,
+                        result
+                    );
+                }
+            catch (error)
+            {
+                processError(
+                    res,
+                    error
+                )
+            }
+        }
+);
+
+
+//========= PROJECT ======================
+
+app.get('/project/byCompany/:companyId',
+    async (req, res) =>
+        {
+            try 
+                {
+                    const companyId = req.params["companyId"];
+
+                    const projectList = await customerServices.project.getAllProjectByCompany(
+                        {
+                            companyId: companyId
+                        }
+                    );
+
+                    const result = {
+                        projectList : projectList
+                    };
+
+                    sendResult(
+                        res,
+                        result
+                    );
+                }
+            catch (error)
+            {
+                processError(
+                    res,
+                    error
+                )
+            }
+        }
+)
+
 function sendResult
 (
     res,

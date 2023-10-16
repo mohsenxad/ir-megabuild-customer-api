@@ -15,9 +15,20 @@ module.exports = function
             } 
         );
 
+        
+
+        const { getCompanyById } = require('./get-company-by-id')
+        (
+            {
+                getDb: getDb,
+                ObjectId: ObjectId
+            } 
+        );
+
         const services = Object.freeze(
             {
-                getAllCompany
+                getAllCompany,
+                getCompanyById
             }
         );
 

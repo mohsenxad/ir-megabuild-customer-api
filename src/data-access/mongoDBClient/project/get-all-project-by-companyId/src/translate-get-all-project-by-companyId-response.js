@@ -1,7 +1,7 @@
-module.exports = function buildTranslateGetAllProjectResponse
+module.exports = function buildTranslateGetAllProjectByCompanyIdResponse
 ()
     {
-        return function translateGetAllProjectResponse
+        return function translateGetAllProjectByCompanyIdResponse
         (
             {
                 response
@@ -13,7 +13,7 @@ module.exports = function buildTranslateGetAllProjectResponse
                     !response
                 )
                     {
-                        throw new Error('translateGetProjectByIdResponse must have response');
+                        throw new Error('translateGetAllProjectByCompanyIdResponse must have response');
                     }
                     
                 return response.toArray();

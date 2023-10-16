@@ -19,11 +19,25 @@ module.exports = function
             {
                 getProjectItemByIdDB: dataAccess.mongo.projectItem.getProjectItemById
             }
-        )
+        );
+
+        const companyUseCases = require('./company')(
+            {
+                getCompanyByIdDB: dataAccess.mongo.company.getCompanyById
+            }
+        );
+
+        const projectUseCases = require('./project')(
+            {
+                getAllProjectByCompanyIdDB: dataAccess.mongo.project.getAllProjectByCompanyId
+            }
+        );
 
         const services = Object.freeze(
             {
-                projectItem: projectItemUseCases
+                projectItem: projectItemUseCases,
+                company: companyUseCases,
+                project: projectUseCases
             }
         );
         
