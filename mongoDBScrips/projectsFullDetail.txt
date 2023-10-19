@@ -1,0 +1,24 @@
+[
+  {
+    $lookup: {
+      from: "projectItems",
+      localField: "_id",
+      foreignField: "project",
+      as: "projectItems",
+    },
+  },
+  {
+    $lookup: {
+      from: "projectTypes",
+      localField: "projectType",
+      foreignField: "_id",
+      as: "projectType",
+    },
+  },
+  {
+    $unwind: {
+      path: "$projectType",
+      preserveNullAndEmptyArrays: true
+    }
+  },
+]

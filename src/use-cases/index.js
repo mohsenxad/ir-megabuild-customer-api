@@ -29,7 +29,8 @@ module.exports = function
 
         const projectUseCases = require('./project')(
             {
-                getAllProjectByCompanyIdDB: dataAccess.mongo.project.getAllProjectByCompanyId
+                getAllProjectByCompanyIdDB: dataAccess.mongo.project.getAllProjectByCompanyId,
+                getProjectByIdDB: dataAccess.mongo.project.getProjectById
             }
         );
 

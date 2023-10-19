@@ -1,9 +1,11 @@
 const buildGetAllProjectByCompany = require('./get-all-project-by-company');
+const buildGetProjectById = require('./get-project-by-id');
 
 module.exports = function
 (
     {
-        getAllProjectByCompanyIdDB
+        getAllProjectByCompanyIdDB,
+        getProjectByIdDB
     }
 )
     {
@@ -14,9 +16,16 @@ module.exports = function
             }
         );
 
+        const getProjectById = buildGetProjectById(
+            {
+                getProjectByIdDB: getProjectByIdDB
+            }
+        );
+
         const services = Object.freeze(
             {
-                getAllProjectByCompany
+                getAllProjectByCompany,
+                getProjectById
             }
         );
 

@@ -31,7 +31,7 @@ module.exports = function buildGetProjectById
                 throw new Error('buildGetProjectById must have translateResponse.');
             }
 
-        const COLLECTION_NAME = 'projects';
+        const COLLECTION_NAME = 'projectsFullDetail';
 
         return async function getProjectById
         (

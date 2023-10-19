@@ -139,6 +139,40 @@ app.get('/project/byCompany/:companyId',
         }
 )
 
+
+app.get('/project/:projectId',
+    async (req, res) =>
+        {
+            try 
+                {
+                    const projectId = req.params["projectId"];
+
+                    const project = await customerServices.project.getProjectById(
+                        {
+                            projectId: projectId
+                        }
+                    );
+
+                    const result = {
+                        project : project
+                    };
+
+                    sendResult(
+                        res,
+                        result
+                    );
+                }
+            catch (error)
+            {
+                processError(
+                    res,
+                    error
+                )
+            }
+        }
+)
+
+
 function sendResult
 (
     res,
