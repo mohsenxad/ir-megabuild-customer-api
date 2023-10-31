@@ -34,11 +34,25 @@ module.exports = function
             }
         );
 
+        const blockUseCases = require('./block')(
+            {
+                getAllBlockByProjectIdDB: dataAccess.mongo.block.getAllBlockByProjectId
+            }
+        );
+
+        const floorUseCases = require('./floor')(
+            {
+                getAllFloorByBlockIdDB: dataAccess.mongo.floor.getAllFloorByBlockId
+            }
+        );
+
         const services = Object.freeze(
             {
                 projectItem: projectItemUseCases,
                 company: companyUseCases,
-                project: projectUseCases
+                project: projectUseCases,
+                block: blockUseCases,
+                floor: floorUseCases
             }
         );
         

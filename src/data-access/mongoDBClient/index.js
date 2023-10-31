@@ -90,13 +90,29 @@ module.exports  = function
                 }
             );
 
+            const blockServices = require('./block')(
+                {
+                    getDb: getDb,
+                    ObjectId: ObjectId
+                }
+            );
+
+            const floorServices = require('./floor')(
+                {
+                    getDb: getDb,
+                    ObjectId: ObjectId
+                }
+            );
+
             const services = Object.freeze(
                 {
                     project: projectServices,
                     customer: customerServices,
                     projectItem: projectItemServices,
                     company: companyServices,
-                    projectItemGallery: projectItemGalleryServices
+                    projectItemGallery: projectItemGalleryServices,
+                    block: blockServices,
+                    floor: floorServices
                 }
             );
 
