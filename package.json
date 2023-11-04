@@ -1,6 +1,6 @@
 {
   "name": "ir-megabuild-customer-api",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "ir megabuild customer api",
   "main": "index.js",
   "scripts": {
